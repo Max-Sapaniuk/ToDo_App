@@ -1,5 +1,4 @@
 import {Box} from "@mui/material";
-import "./Calendar.scss"
 
 const months = {
     0: 'Jan',
@@ -22,15 +21,17 @@ function Calendar() {
         <>
             <Box display="flex"
                  flexDirection="column"
+                 bgcolor="white"
                  border="3px solid #3D82EB"
-                 width="70px"
+                 width="65px"
                  textAlign="center"
                  borderRadius="15px">
                 <Box bgcolor="#3D82EB"
                      textTransform="uppercase"
                      color="white"
                      borderRadius="10px 10px 0 0"
-                     boxShadow="0 0 0 1px #3D82EB"
+                     boxShadow="0 0 0 2px #3D82EB"
+                     fontSize="16px"
                      fontWeight="1000"
                      letterSpacing="2px"
                      paddingLeft="2px">
