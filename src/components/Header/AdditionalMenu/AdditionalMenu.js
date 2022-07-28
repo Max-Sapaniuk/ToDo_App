@@ -1,8 +1,8 @@
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
-import {Box, Button, Menu, MenuItem} from "@mui/material";
-import {changeLanguage, changeSelectedTasks} from "../../../redux/mainSlice";
+import {Box, Button, Divider, Menu, MenuItem} from "@mui/material";
+import {changeSelectedTasks} from "../../../redux/mainSlice";
 
 function AdditionalMenu() {
     const dispatch = useDispatch()
@@ -37,11 +37,13 @@ function AdditionalMenu() {
                 open={open}
                 onClose={() => handleClose()}
             >
+                <Divider/>
                 <MenuItem onClick={(event) => {
                     dispatch(changeSelectedTasks({newSelectedTasks: 'all'}))
                     handleClose()
                 }}
                           selected={selectedTasks === 'all'}
+                          divider={true}
                           key={'all'}>
                     All
                 </MenuItem>
@@ -50,6 +52,7 @@ function AdditionalMenu() {
                     handleClose()
                 }}
                           selected={selectedTasks === 'completed'}
+                          divider={true}
                           key={'completed'}>
                     Completed
                 </MenuItem>
@@ -58,6 +61,7 @@ function AdditionalMenu() {
                     handleClose()
                 }}
                           selected={selectedTasks === 'inProgress'}
+                          divider={true}
                           key={'inProgress'}>
                     In Progress
                 </MenuItem>
@@ -66,6 +70,7 @@ function AdditionalMenu() {
                     handleClose()
                 }}
                           selected={selectedTasks === 'removed'}
+                          divider={true}
                           key={'removed'}>
                     Removed
                 </MenuItem>

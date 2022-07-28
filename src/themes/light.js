@@ -4,7 +4,7 @@ export default createTheme({
     palette: {
         mode: "light",
         primary: {
-            main: '#fff'
+            main: '#fff',
         },
         secondary: {
             main: '#000'
@@ -20,4 +20,18 @@ export default createTheme({
             fontWeight: "bold",
         }
     },
+    components: {
+        MuiMenuItem: {
+            styleOverrides: {
+                root: {
+                    "&.Mui-selected": {
+                        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                        "&:hover": {
+                            backgroundColor: 'rgba(0,0,0, 0.2)',
+                        }
+                    }
+                }
+            }
+        }
+    }
 });

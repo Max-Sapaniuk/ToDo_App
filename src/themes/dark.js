@@ -20,4 +20,18 @@ export default createTheme({
             fontWeight: "bold",
         }
     },
+    components: {
+        MuiMenuItem: {
+            styleOverrides: {
+                root: {
+                    "&.Mui-selected": {
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                        "&:hover": {
+                            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                        }
+                    }
+                }
+            }
+        }
+    }
 });

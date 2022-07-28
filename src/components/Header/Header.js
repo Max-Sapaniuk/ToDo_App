@@ -5,10 +5,8 @@ import LanguageSwitcher from "./LanguageSwitcher/LanguageSwitcher";
 import AdditionalMenu from "./AdditionalMenu/AdditionalMenu";
 
 function Header() {
-
-
     return (
-        <Box marginTop="100px">
+        <Box marginTop="100px" marginBottom="50px">
             <AppBar position="static" color="primary" elevation={0}>
                 <Toolbar>
                     <Calendar/>
