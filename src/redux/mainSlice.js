@@ -8,6 +8,7 @@ const mainSlice = createSlice({
             currentLanguage: "EN",
             allLanguages: ["EN", "UA"]
         },
+        selectedTasks: 'all',
     },
     reducers: {
         changeTheme: state => {
@@ -16,12 +17,12 @@ const mainSlice = createSlice({
         changeLanguage: (state, action) => {
             state.languageManage.currentLanguage = action.payload.newLanguage
         },
-        // setAnchor: (state, action) => {
-        //     state.languageManage.menuAnchor = action.payload.anchor
-        // }
+        changeSelectedTasks: (state, action) => {
+            state.selectedTasks = action.payload.newSelectedTasks
+        }
     }
 })
 
-export const { changeTheme, changeLanguage, } = mainSlice.actions
+export const { changeTheme, changeLanguage, changeSelectedTasks, } = mainSlice.actions
 
 export default mainSlice.reducer

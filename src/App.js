@@ -9,11 +9,9 @@ function App() {
     const isDarkTheme = useSelector(state => state.main.isDarkTheme)
     return (
         <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-            <CssBaseline />
+            <CssBaseline/>
             <Container>
-                <Box marginTop="100px">
-                    <Header/>
-                </Box>
+                <Header/>
             </Container>
         </ThemeProvider>
     );

@@ -6,6 +6,9 @@ export default createTheme({
         primary: {
             main: '#fff'
         },
+        secondary: {
+            main: '#000'
+        },
         info: {
             main: '#C4C4C4'
         }

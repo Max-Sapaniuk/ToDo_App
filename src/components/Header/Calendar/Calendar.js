@@ -24,6 +24,7 @@ function Calendar() {
                  bgcolor="white"
                  border="3px solid #3D82EB"
                  width="65px"
+                 minWidth="65px"
                  textAlign="center"
                  borderRadius="15px">
                 <Box bgcolor="#3D82EB"

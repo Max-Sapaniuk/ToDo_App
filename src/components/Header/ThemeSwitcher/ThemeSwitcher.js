@@ -1,5 +1,5 @@
 import {styled, Switch} from "@mui/material";
-import {changeTheme} from "../../redux/mainSlice";
+import {changeTheme} from "../../../redux/mainSlice";
 import {useDispatch} from "react-redux";
 
 const MaterialUISwitch = styled(Switch)(({theme}) => ({

@@ -3,9 +3,11 @@ import {createTheme} from "@mui/material";
 export default createTheme({
     palette: {
         mode: "dark",
-        background: {
-            default: "#000",
-            paper: "#000"
+        primary: {
+            main: '#000'
+        },
+        secondary: {
+            main: '#fff'
         },
         info: {
             main: '#C4C4C4'
