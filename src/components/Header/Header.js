@@ -6,7 +6,7 @@ import AdditionalMenu from "./AdditionalMenu/AdditionalMenu";
 
 function Header() {
     return (
-        <Box marginTop="100px" marginBottom="50px">
+        <Box marginTop="100px" marginBottom="25px">
             <AppBar position="static" color="primary" elevation={0}>
                 <Toolbar>
                     <Calendar/>

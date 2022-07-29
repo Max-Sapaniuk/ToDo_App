@@ -8,7 +8,7 @@ const mainSlice = createSlice({
             currentLanguage: "EN",
             allLanguages: ["EN", "UA"]
         },
-        selectedTasks: 'all',
+        selectedTasks: 'All',
     },
     reducers: {
         changeTheme: state => {

@@ -18,6 +18,9 @@ export default createTheme({
             fontFamily: "Quicksand",
             fontSize: "48px",
             fontWeight: "bold",
+        },
+        subtitle1: {
+            fontSize: "28px"
         }
     },
     components: {
@@ -30,6 +33,28 @@ export default createTheme({
                             backgroundColor: 'rgba(0,0,0, 0.2)',
                         }
                     }
+                }
+            }
+        },
+        MuiLink: {
+            styleOverrides: {
+                root: {
+                    color: 'black',
+                    opacity: 0.8,
+                    textDecoration: 'none',
+                    "&:hover": {
+                        textDecoration: 'underline',
+                    }
+                }
+            }
+        },
+        MuiBreadcrumbs: {
+            styleOverrides: {
+                root: {
+                    "&.MuiBreadcrumbs-root":
+                        {
+                            fontSize: '28px',
+                        }
                 }
             }
         }

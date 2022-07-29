@@ -39,39 +39,39 @@ function AdditionalMenu() {
             >
                 <Divider/>
                 <MenuItem onClick={(event) => {
-                    dispatch(changeSelectedTasks({newSelectedTasks: 'all'}))
+                    dispatch(changeSelectedTasks({newSelectedTasks: 'All'}))
                     handleClose()
                 }}
-                          selected={selectedTasks === 'all'}
+                          selected={selectedTasks === 'All'}
                           divider={true}
-                          key={'all'}>
+                          key={'All'}>
                     All
                 </MenuItem>
                 <MenuItem onClick={(event) => {
-                    dispatch(changeSelectedTasks({newSelectedTasks: 'completed'}))
+                    dispatch(changeSelectedTasks({newSelectedTasks: 'Completed'}))
                     handleClose()
                 }}
-                          selected={selectedTasks === 'completed'}
+                          selected={selectedTasks === 'Completed'}
                           divider={true}
-                          key={'completed'}>
+                          key={'Completed'}>
                     Completed
                 </MenuItem>
                 <MenuItem onClick={(event) => {
-                    dispatch(changeSelectedTasks({newSelectedTasks: 'inProgress'}))
+                    dispatch(changeSelectedTasks({newSelectedTasks: 'In Progress'}))
                     handleClose()
                 }}
-                          selected={selectedTasks === 'inProgress'}
+                          selected={selectedTasks === 'In Progress'}
                           divider={true}
-                          key={'inProgress'}>
+                          key={'In Progress'}>
                     In Progress
                 </MenuItem>
                 <MenuItem onClick={(event) => {
-                    dispatch(changeSelectedTasks({newSelectedTasks: 'removed'}))
+                    dispatch(changeSelectedTasks({newSelectedTasks: 'Removed'}))
                     handleClose()
                 }}
-                          selected={selectedTasks === 'removed'}
+                          selected={selectedTasks === 'Removed'}
                           divider={true}
-                          key={'removed'}>
+                          key={'Removed'}>
                     Removed
                 </MenuItem>
             </Menu>
