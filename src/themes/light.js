@@ -9,8 +9,11 @@ export default createTheme({
         secondary: {
             main: '#000'
         },
+        additional: {
+            main: '#4545da'
+        },
         info: {
-            main: '#C4C4C4'
+            main: '#a2a1a1',
         }
     },
     typography: {
@@ -19,8 +22,14 @@ export default createTheme({
             fontSize: "48px",
             fontWeight: "bold",
         },
+        h4: {
+
+        },
         subtitle1: {
             fontSize: "28px"
+        },
+        body1: {
+
         }
     },
     components: {

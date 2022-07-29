@@ -9,8 +9,11 @@ export default createTheme({
         secondary: {
             main: '#fff'
         },
+        additional: {
+            main: '#4545da'
+        },
         info: {
-            main: '#C4C4C4'
+            main: '#a2a1a1'
         }
     },
     typography: {
