@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {changeSelectedTasks} from "../../../redux/mainSlice";
 
 function NavBreadcrumbs() {
-    const selectedTasks = useSelector(state => state.main.selectedTasks)
+    const selectedTasks = useSelector(state => state.main.tasks.selectedTasks)
     const dispatch = useDispatch()
     if (selectedTasks === "All") {
         return (

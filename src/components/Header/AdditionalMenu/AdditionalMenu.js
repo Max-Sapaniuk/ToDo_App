@@ -6,7 +6,7 @@ import {changeSelectedTasks} from "../../../redux/mainSlice";
 
 function AdditionalMenu() {
     const dispatch = useDispatch()
-    const selectedTasks = useSelector(state => state.main.selectedTasks);
+    const selectedTasks = useSelector(state => state.main.tasks.selectedTasks);
 
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
