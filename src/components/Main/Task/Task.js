@@ -1,120 +1,35 @@
-import {Box, Typography} from "@mui/material";
+import {Box} from "@mui/material";
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import RestoreIcon from '@mui/icons-material/Restore';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import {useDispatch} from "react-redux";
-import {changeTaskStatus} from "../../../redux/mainSlice";
+import Restore from "./Restore/Restore";
+import Delete from "./Delete/Delete";
+import Body from "./Body/Body";
+import Container from "./Container/Container";
+import Remove from "./Remove/Remove";
 
 function Task(props) {
-    let dispatch = useDispatch()
-    if (props.isDeleted) {
-        if (props.isCompleted)
-            return (
-                <Box display="flex" alignItems="center" width="100%" marginBottom="15px" sx={{
-                    "&:hover": {
-                        borderRadius: "10px",
-                        boxShadow: "4px 4px 8px 1px black"
-                    }
-                }}>
-                    <Box padding="5px" marginX="10px"><TaskAltIcon fontSize="large"
-                                                                   color="success"/></Box>
-                    <Box flexBasis="100%" width="100px">
-                        <Typography variant="h4" sx={{
-                            textDecoration: 'line-through'
-                        }}>{props.header}</Typography>
-                        <Typography variant="body1" noWrap={true} sx={{
-                            textDecoration: 'line-through'
-                        }}>{props.body}</Typography>
-                        <Typography variant="body2">{props.addingDate.toString()}</Typography>
-                    </Box>
-                    <Box marginX="20px"><RestoreIcon fontSize="large" color="additional"/></Box>
-                    <Box marginX="20px"><DeleteOutlineIcon fontSize="large" color="error"/></Box>
-                </Box>
-            )
-        else
-            return (
-                <Box display="flex" alignItems="center" width="100%" marginBottom="15px" sx={{
-                    "&:hover": {
-                        borderRadius: "10px",
-                        boxShadow: "4px 4px 8px 1px black"
-                    }
-                }}>
-                    <Box padding="5px" marginX="10px"><RadioButtonUncheckedIcon fontSize="large"/></Box>
-                    <Box flexBasis="100%" width="100px">
-                        <Typography variant="h4">{props.header}</Typography>
-                        <Typography variant="body1" noWrap={true}>{props.body}</Typography>
-                        <Typography variant="body2">{props.addingDate.toString()}</Typography>
-                    </Box>
-                    <Box marginX="20px"><RestoreIcon fontSize="large" color="additional"/></Box>
-                    <Box marginX="20px"><DeleteOutlineIcon fontSize="large" color="error"/></Box>
-                </Box>
-            )
-    }
-    if (props.isCompleted) {
-        return (
-                <Box display="flex"
-                     alignItems="center"
-                     width="100%"
-                     marginBottom="15px"
-                     sx={{
-                         "&:hover": {
-                             borderRadius: "10px",
-                             boxShadow: "4px 4px 8px 1px black"
-                         },
-                         transitionDelay: '5s'
-                     }}
-                     onClick={() => {
-                         dispatch(changeTaskStatus({
-                             id: props.id,
-                             isCompleted: false,
-                         }))
-                     }}
-                >
-                    <Box padding="5px" marginX="10px"><TaskAltIcon fontSize="large"
-                                                                   color="success"/></Box>
-                    <Box flexBasis="100%" width="100px">
-                        <Typography variant="h4" sx={{
-                            textDecoration: 'line-through'
-                        }}>{props.header}</Typography>
-                        <Typography variant="body1" noWrap={true} sx={{
-                            textDecoration: 'line-through'
-                        }}>{props.body}</Typography>
-                        <Typography variant="body2">{props.addingDate.toString()}</Typography>
-                    </Box>
-                    <Box marginX="20px"><HighlightOffIcon fontSize="large" color="error"/></Box>
-                </Box>
-        )
-    }
     return (
-        <>
-            <Box display="flex"
-                 alignItems="center"
-                 width="100%"
-                 marginBottom="15px"
-                 sx={{
-                     "&:hover": {
-                         borderRadius: "10px",
-                         boxShadow: "4px 4px 8px 1px black"
-                     }
-                 }}
-                 onClick={() => {
-                     dispatch(changeTaskStatus({
-                         id: props.id,
-                         isCompleted: true,
-                     }))
-                 }}
-            >
-                <Box padding="5px" marginX="10px"><RadioButtonUncheckedIcon fontSize="large"/></Box>
-                <Box flexBasis="100%" width="100px">
-                    <Typography variant="h4">{props.header}</Typography>
-                    <Typography variant="body1" noWrap={true}>{props.body}</Typography>
-                    <Typography variant="body2">{props.addingDate.toString()}</Typography>
-                </Box>
-                <Box marginX="20px"><HighlightOffIcon fontSize="large" color="error"/></Box>
+        <Container id={props.id} isCompleted={props.isCompleted} isDeleted={props.isDeleted}>
+            <Box padding="15px">
+                {
+                    props.isCompleted ?
+                        <TaskAltIcon fontSize="large" color="success"/> :
+                        <RadioButtonUncheckedIcon fontSize="large"/>
+                }
             </Box>
-        </>
+            <Body isCompleted={props.isCompleted}
+                  header={props.header}
+                  body={props.body}
+                  addingDate={props.addingDate}/>
+            {
+                props.isDeleted ?
+                    <>
+                        <Restore id={props.id}/>
+                        <Delete id={props.id}/>
+                    </> :
+                    <Remove id={props.id}/>
+            }
+        </Container>
     )
 }
 

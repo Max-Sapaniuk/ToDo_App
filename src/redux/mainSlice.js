@@ -65,10 +65,17 @@ const mainSlice = createSlice({
                     }
                 }
             })
+        },
+        deleteTask: (state, action) => {
+            state.tasks.allTasks.forEach((curr, index) => {
+                if (curr.id === action.payload.id) {
+                    state.tasks.allTasks.splice(index, 1)
+                }
+            })
         }
     }
 })
 
-export const { changeTheme, changeLanguage, changeSelectedTasks, changeTaskStatus, } = mainSlice.actions
+export const { changeTheme, changeLanguage, changeSelectedTasks, changeTaskStatus, deleteTask, } = mainSlice.actions
 
 export default mainSlice.reducer
