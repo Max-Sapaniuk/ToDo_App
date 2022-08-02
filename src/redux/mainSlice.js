@@ -15,7 +15,7 @@ const mainSlice = createSlice({
                 {
                     id: 0,
                     header: "Test task №1",
-                    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id mi varius, ornare nisl ut, imperdiet est. Vivamus sed sem porta, lacinia magna malesuada, tempor sem. Etiam semper, neque in suscipit laoreet, mi urna tempor nibh, eu egestas est enim a sapien. Curabitur auctor, ligula nec gravida ultrices, nisl quam varius turpis, et viverra magna sapien eu sapien. Fusce et diam varius, vulputate lacus id, imperdiet tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed luctus rutrum metus, a sodales arcu sollicitudin ut. Nam id massa tristique, vestibulum sapien eu, rutrum erat. Pellentesque commodo.",
+                    body: "Lorem \nipsum dolor",
                     addingDate: new Date("2022.08.13").toString(),
                     isCompleted: false,
                     isDeleted: false,
@@ -63,6 +63,7 @@ const mainSlice = createSlice({
                     for (const [key, value] of Object.entries(action.payload)) {
                         curr[key] = value
                     }
+                    curr.addingDate = new Date().toString()
                 }
             })
         },

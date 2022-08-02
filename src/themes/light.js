@@ -22,15 +22,13 @@ export default createTheme({
             fontSize: "48px",
             fontWeight: "bold",
         },
-        h4: {
-
+        h5: {
+            fontSize: '18px',
+            fontWeight: 'bold'
         },
         subtitle1: {
             fontSize: "28px"
         },
-        body1: {
-
-        }
     },
     components: {
         MuiMenuItem: {
@@ -66,6 +64,6 @@ export default createTheme({
                         }
                 }
             }
-        }
+        },
     }
 });

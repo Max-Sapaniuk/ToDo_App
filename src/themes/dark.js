@@ -24,7 +24,10 @@ export default createTheme({
         },
         subtitle1: {
             fontSize: "28px"
-        }
+        },
+        body1: {
+
+        },
     },
     components: {
         MuiMenuItem: {

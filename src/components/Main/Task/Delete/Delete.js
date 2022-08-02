@@ -6,11 +6,13 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 function Delete(props) {
     let dispatch = useDispatch()
     return (
-        <Box padding="20px"  onClick={() => {
-            dispatch(deleteTask({
-                id: props.id,
-            }))
-        }}><DeleteOutlineIcon fontSize="large" color="error"/></Box>
+        <Box padding="20px"
+             className="taskIcons"
+             onClick={() => {
+                 dispatch(deleteTask({
+                     id: props.id,
+                 }))
+             }}><DeleteOutlineIcon fontSize="large" color="error"/></Box>
     )
 }
 

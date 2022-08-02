@@ -9,18 +9,20 @@ function Container(props) {
              alignItems="center"
              width="100%"
              marginBottom="15px"
+             paddingX={"10px"}
              sx={{
                  "&:hover": {
                      borderRadius: "10px",
-                     boxShadow: "4px 4px 8px 1px black"
+                     boxShadow: "4px 4px 8px 1px black",
+                     cursor: "pointer"
                  }
              }}
-             onClick={!props.isDeleted ? () => {
-                 dispatch(changeTaskStatus({
-                     id: props.id,
-                     isCompleted: !props.isCompleted,
-                 }))
-             } : () => {}}
+             // onClick={!props.isDeleted ? () => {
+             //     dispatch(changeTaskStatus({
+             //         id: props.id,
+             //         isCompleted: !props.isCompleted,
+             //     }))
+             // } : () => {}}
         >{props.children}</Box>
     )
 }

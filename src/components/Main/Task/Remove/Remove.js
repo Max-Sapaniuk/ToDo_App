@@ -7,6 +7,7 @@ function Remove(props) {
     let dispatch = useDispatch()
     return (
         <Box padding="20px"
+             className="taskIcons"
              onClick={(event) => {
                  event.stopPropagation()
                  dispatch(changeTaskStatus({
