@@ -1,12 +1,13 @@
 import {styled, Switch} from "@mui/material";
 import {changeTheme} from "../../../redux/mainSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 const MaterialUISwitch = styled(Switch)(({theme}) => ({
     width: 62,
     height: 34,
     padding: 7,
     '& .MuiSwitch-switchBase': {
+
         margin: 1,
         padding: 0,
         transform: 'translateX(6px)',
@@ -51,8 +52,9 @@ const MaterialUISwitch = styled(Switch)(({theme}) => ({
 
 function ThemeSwitcher() {
     const dispatch = useDispatch()
+    const isDarkTheme = useSelector(state => state.main.isDarkTheme)
     return (
-        <MaterialUISwitch onClick={() => dispatch(changeTheme())}/>
+        <MaterialUISwitch checked={isDarkTheme} onClick={() => dispatch(changeTheme())}/>
     )
 }
 export default ThemeSwitcher

@@ -8,7 +8,7 @@ function Restore(props) {
     let dispatch = useDispatch()
     return (
         <Box padding="20px"
-             className="taskIcons"
+             className="hoverMenu"
              onClick={() => {
                  dispatch(changeTaskStatus({
                      id: props.id,

@@ -3,6 +3,7 @@ import React from "react";
 import AddTask from "./AddTask/AddTask";
 import {useSelector} from "react-redux";
 import ShowTasks from "./ShowTasks/ShowTasks";
+import "./mainStyle.scss"
 
 function Main() {
     const tasks = useSelector(state => state.main.tasks)

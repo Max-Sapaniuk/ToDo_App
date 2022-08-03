@@ -8,7 +8,8 @@ function Uncompleted(props) {
 
     return (
         <Box padding="20px"
-             className={props.isDeleted ? "" : "taskIcons"}
+             className={props.isDeleted ? "" : "hoverMenu"}
+             style={props.isDeleted ? {cursor: 'not-allowed'} : {}}
              onClick={() => {
                  if (!props.isDeleted)
                      dispatch(changeTaskStatus({

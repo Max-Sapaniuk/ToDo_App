@@ -6,7 +6,6 @@ import {
     DialogContent,
     DialogContentText,
     DialogTitle,
-    TextField,
     Typography
 } from "@mui/material";
 import {useState} from "react";
@@ -22,7 +21,7 @@ function Body(props) {
     };
 
     return (
-        <Box flexBasis="100%" width="100px" paddingX={"5px"} className={"taskIcons"}>
+        <Box flexBasis="100%" width="100px" paddingX={"5px"} className={"hoverMenu"}>
             <Box onClick={handleClickOpen}>
                 <Typography variant="h4" sx={{
                     textDecoration: props.isCompleted ? 'line-through' : 'none'

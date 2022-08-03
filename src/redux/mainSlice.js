@@ -1,8 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-const mainSlice = createSlice({
-    name: 'main',
-    initialState: {
+let initialState
+if (localStorage.getItem("state") !== null)
+    initialState = JSON.parse(localStorage.getItem("state"))
+else {
+    initialState = {
         isDarkTheme: false,
         languageManage: {
             currentLanguage: "EN",
@@ -10,52 +12,28 @@ const mainSlice = createSlice({
         },
         tasks: {
             selectedTasks: 'All',
-            lastId: 3,
+            lastId: 0,
             allTasks: [
-                {
-                    id: 0,
-                    header: "Test task №1",
-                    body: "Lorem \nipsum dolor",
-                    addingDate: new Date("2022.08.13").toString(),
-                    isCompleted: false,
-                    isDeleted: false,
-                },
-                {
-                    id: 1,
-                    header: "Test task №2",
-                    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id mi varius, ornare nisl ut, imperdiet est. Vivamus sed sem porta, lacinia magna malesuada, tempor sem. Etiam semper, neque in suscipit laoreet, mi urna tempor nibh, eu egestas est enim a sapien. Curabitur auctor, ligula nec gravida ultrices, nisl quam varius turpis, et viverra magna sapien eu sapien. Fusce et diam varius, vulputate lacus id, imperdiet tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed luctus rutrum metus, a sodales arcu sollicitudin ut. Nam id massa tristique, vestibulum sapien eu, rutrum erat. Pellentesque commodo.",
-                    addingDate: new Date("2022.08.13").toString(),
-                    isCompleted: true,
-                    isDeleted: false,
-                },
-                {
-                    id: 2,
-                    header: "Test task №3",
-                    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id mi varius, ornare nisl ut, imperdiet est. Vivamus sed sem porta, lacinia magna malesuada, tempor sem. Etiam semper, neque in suscipit laoreet, mi urna tempor nibh, eu egestas est enim a sapien. Curabitur auctor, ligula nec gravida ultrices, nisl quam varius turpis, et viverra magna sapien eu sapien. Fusce et diam varius, vulputate lacus id, imperdiet tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed luctus rutrum metus, a sodales arcu sollicitudin ut. Nam id massa tristique, vestibulum sapien eu, rutrum erat. Pellentesque commodo.",
-                    addingDate: new Date().toString(),
-                    isCompleted: false,
-                    isDeleted: true,
-                },
-                {
-                    id: 3,
-                    header: "Test task №4",
-                    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id mi varius, ornare nisl ut, imperdiet est. Vivamus sed sem porta, lacinia magna malesuada, tempor sem. Etiam semper, neque in suscipit laoreet, mi urna tempor nibh, eu egestas est enim a sapien. Curabitur auctor, ligula nec gravida ultrices, nisl quam varius turpis, et viverra magna sapien eu sapien. Fusce et diam varius, vulputate lacus id, imperdiet tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed luctus rutrum metus, a sodales arcu sollicitudin ut. Nam id massa tristique, vestibulum sapien eu, rutrum erat. Pellentesque commodo.",
-                    addingDate: new Date().toString(),
-                    isCompleted: true,
-                    isDeleted: true,
-                }
             ],
         },
-    },
+    }
+    localStorage.setItem("state", JSON.stringify(initialState))
+}
+const mainSlice = createSlice({
+    name: 'main',
+    initialState,
     reducers: {
         changeTheme: state => {
             state.isDarkTheme = !state.isDarkTheme
+            localStorage.setItem("state", JSON.stringify(state))
         },
         changeLanguage: (state, action) => {
             state.languageManage.currentLanguage = action.payload.newLanguage
+            localStorage.setItem("state", JSON.stringify(state))
         },
         changeSelectedTasks: (state, action) => {
             state.tasks.selectedTasks = action.payload.newSelectedTasks
+            localStorage.setItem("state", JSON.stringify(state))
         },
         changeTaskStatus: (state, action) => {
             state.tasks.allTasks.forEach((curr) => {
@@ -66,6 +44,7 @@ const mainSlice = createSlice({
                     curr.addingDate = new Date().toString()
                 }
             })
+            localStorage.setItem("state", JSON.stringify(state))
         },
         deleteTask: (state, action) => {
             state.tasks.allTasks.forEach((curr, index) => {
@@ -73,10 +52,30 @@ const mainSlice = createSlice({
                     state.tasks.allTasks.splice(index, 1)
                 }
             })
+            localStorage.setItem("state", JSON.stringify(state))
+        },
+        createTask: (state, action) => {
+            state.tasks.lastId += 1
+            state.tasks.allTasks.push({
+                id: state.tasks.lastId,
+                header: action.payload.header,
+                body: action.payload.body,
+                addingDate: new Date().toString(),
+                isCompleted: false,
+                isDeleted: false,
+            })
+            localStorage.setItem("state", JSON.stringify(state))
         }
     }
 })
 
-export const { changeTheme, changeLanguage, changeSelectedTasks, changeTaskStatus, deleteTask, } = mainSlice.actions
+export const {
+    changeTheme,
+    changeLanguage,
+    changeSelectedTasks,
+    changeTaskStatus,
+    deleteTask,
+    createTask
+} = mainSlice.actions
 
 export default mainSlice.reducer

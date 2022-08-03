@@ -1,6 +1,3 @@
-import {Box} from "@mui/material";
-import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
-import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import Restore from "./Restore/Restore";
 import Delete from "./Delete/Delete";
 import Body from "./Body/Body";
@@ -9,7 +6,7 @@ import Remove from "./Remove/Remove";
 import Edit from "./Edit/Edit";
 import Completed from "./Completed/Completed";
 import Uncompleted from "./Uncompleted/Uncompleted";
-import "./TaskStyle.scss"
+
 function Task(props) {
     return (
         <Container id={props.id} isCompleted={props.isCompleted} isDeleted={props.isDeleted}>

@@ -7,7 +7,7 @@ function Delete(props) {
     let dispatch = useDispatch()
     return (
         <Box padding="20px"
-             className="taskIcons"
+             className="hoverMenu"
              onClick={() => {
                  dispatch(deleteTask({
                      id: props.id,
