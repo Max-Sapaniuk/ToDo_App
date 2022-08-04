@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 function Header() {
     const { t } = useTranslation();
     return (
-        <Box marginTop="100px" marginBottom="25px">
+        <Box paddingTop="100px" paddingBottom="25px">
             <AppBar position="static" color="primary" elevation={0}>
                 <Toolbar>
                     <Calendar/>
