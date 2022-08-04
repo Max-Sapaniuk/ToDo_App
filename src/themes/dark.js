@@ -14,6 +14,9 @@ export default createTheme({
         },
         info: {
             main: '#a2a1a1'
+        },
+        footer: {
+            main: '#282828'
         }
     },
     typography: {
@@ -22,11 +25,15 @@ export default createTheme({
             fontSize: "48px",
             fontWeight: "bold",
         },
+        h4: {
+            // color
+        },
+        h5: {
+            fontSize: '18px',
+            fontWeight: 'bold'
+        },
         subtitle1: {
             fontSize: "28px"
-        },
-        body1: {
-
         },
     },
     components: {

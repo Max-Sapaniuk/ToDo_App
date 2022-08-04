@@ -28,6 +28,8 @@ const resources = {
             "Cancel": "Cancel",
             "Header is required": "Header is required",
             "Body is required": "Body is required",
+            "copyright": "Web-site was developed by Maksym Sapaniuk",
+            "contacts": "Contacts",
         }
     },
     ua: {
@@ -53,6 +55,8 @@ const resources = {
             "Cancel": "Відмінити",
             "Header is required": "Загаловок є обов'язковим",
             "Body is required": "Опис є обов'язковим",
+            "copyright": "Веб-сайт розробив Сапанюк Максим",
+            "contacts": "Контакти",
         }
     }
 };

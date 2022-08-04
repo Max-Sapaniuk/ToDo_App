@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 import React, {useEffect} from "react";
 import Main from "./components/Main/Main";
 import { useTranslation } from 'react-i18next';
+import Footer from "./components/Footer/Footer";
 
 function App() {
     const isDarkTheme = useSelector(state => state.main.isDarkTheme)
@@ -22,6 +23,7 @@ function App() {
             <Container>
                 <Header/>
                 <Main/>
+                <Footer/>
             </Container>
         </ThemeProvider>
     );

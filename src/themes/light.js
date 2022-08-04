@@ -14,7 +14,10 @@ export default createTheme({
         },
         info: {
             main: '#a2a1a1',
-        }
+        },
+        footer: {
+            main: '#bebebe',
+        },
     },
     typography: {
         h1: {
