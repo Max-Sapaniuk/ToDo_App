@@ -1,9 +1,12 @@
 import React from "react";
 import Task from "../Task/Task";
 import {Typography} from "@mui/material";
+import {useTranslation} from "react-i18next";
 
 function ShowTasks(props) {
     let tasks;
+    const { t } = useTranslation();
+
     switch (props.selectedTasks) {
         case "All":
             tasks = (
@@ -76,13 +79,13 @@ function ShowTasks(props) {
             )
             break;
         default:
-            return <Typography variant="h4" m={2} color="darkred">Category with this name doesn't exist!</Typography>
+            return <Typography variant="h4" m={2} color="darkred">{t("Category not exist")}!</Typography>
     }
     for (let i = 0; i < tasks.length; i++) {
         if (tasks[i] !== null)
             return tasks
     }
-    return <Typography variant="h4" m={2} color="darkred">There is no any task in this category!</Typography>
+    return <Typography variant="h4" m={2} color="darkred">{t("There is no task")}!</Typography>
 }
 
 export default ShowTasks

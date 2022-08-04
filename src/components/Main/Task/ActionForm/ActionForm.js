@@ -3,14 +3,17 @@ import {useFormik} from "formik";
 import {changeTaskStatus, createTask} from "../../../../redux/mainSlice";
 import {useDispatch} from "react-redux";
 import {Box, Button, TextField} from "@mui/material";
-
-const validationSchema = yup.object({
-    header: yup.string('Enter Header of your task').required('Header is required'),
-    body: yup.string('Enter Body of your task').required('Body is required'),
-});
+import {useTranslation} from "react-i18next";
 
 function ActionForm(props) {
     let dispatch = useDispatch()
+
+    const { t } = useTranslation();
+
+    const validationSchema = yup.object({
+        header: yup.string('Enter Header of your task').required(t('Header is required')),
+        body: yup.string('Enter Body of your task').required(t('Body is required')),
+    });
 
     const formik = useFormik({
         initialValues: {
@@ -42,7 +45,7 @@ function ActionForm(props) {
                     color="info"
                     id="header"
                     name="header"
-                    label="Header"
+                    label={(t("Header"))}
                     value={formik.values.header}
                     onChange={formik.handleChange}
                     error={formik.touched.header && Boolean(formik.errors.header)}
@@ -53,7 +56,7 @@ function ActionForm(props) {
                     color="info"
                     id="body"
                     name="body"
-                    label="Body"
+                    label={(t("Body"))}
                     multiline
                     minRows={4}
                     maxRows={16}
@@ -64,14 +67,14 @@ function ActionForm(props) {
                 />
                 <Box display="flex" justifyContent="space-around">
                     <Button color="success" variant="contained" type="submit" sx={{width: '45%'}}>
-                        {props.type === "edit" ? "Update" : "Create"}
+                        {props.type === "edit" ? (t("Update")) : (t("Create"))}
                     </Button>
                     <Button color="error" variant="contained" type="reset" sx={{width: '45%'}}
                             onClick={() => {
                                 props.handleClose()
                                 setTimeout(() => formik.resetForm(), 100)
                             }}>
-                        Cancel
+                        {(t("Cancel"))}
                     </Button>
                 </Box>
             </Box>

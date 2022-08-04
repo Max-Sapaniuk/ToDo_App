@@ -1,6 +1,7 @@
 import {Box} from "@mui/material";
+import {useSelector} from "react-redux";
 
-const months = {
+const monthsEn = {
     0: 'Jan',
     1: 'Feb',
     2: 'Mar',
@@ -15,8 +16,24 @@ const months = {
     11: 'Dec',
 }
 
+const monthsUa = {
+    0: 'Січ',
+    1: 'Лют',
+    2: 'Бер',
+    3: 'Кві',
+    4: 'Тра',
+    5: 'Чер',
+    6: 'Лип',
+    7: 'Сер',
+    8: 'Вер',
+    9: 'Жов',
+    10: 'Лис',
+    11: 'Гру',
+}
+
 function Calendar() {
     let date = new Date(), day = date.getDate(), month = date.getMonth()
+    let currLng = useSelector(state => state.main.languageManage.currentLanguage)
     return (
         <>
             <Box display="flex"
@@ -36,14 +53,13 @@ function Calendar() {
                      fontWeight="1000"
                      letterSpacing="2px"
                      paddingLeft="2px">
-                    {months[month]}
+                    {currLng === "EN" ? monthsEn[month] : monthsUa[month]}
                 </Box>
                 <Box color="#3D82EB"
                      alignSelf="center"
                      fontSize="26px"
                      fontWeight="bold">
                     {day}
-
                 </Box>
             </Box>
         </>

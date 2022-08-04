@@ -8,6 +8,7 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import {useState} from "react";
 import ActionForm from "../ActionForm/ActionForm";
+import {useTranslation} from "react-i18next";
 
 function Edit(props) {
 
@@ -18,6 +19,8 @@ function Edit(props) {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const { t } = useTranslation();
 
     return (
         <>
@@ -33,7 +36,7 @@ function Edit(props) {
                 onClick={(event) => event.stopPropagation()}
             >
                 <DialogTitle fontSize="28px">
-                    Update task
+                    {t("Update Task")}
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>

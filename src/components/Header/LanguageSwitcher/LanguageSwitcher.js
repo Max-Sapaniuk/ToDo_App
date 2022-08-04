@@ -4,6 +4,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import {changeLanguage} from "../../../redux/mainSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
+import {useTranslation} from "react-i18next";
 
 function LanguageSwitcher() {
     const dispatch = useDispatch()
@@ -18,6 +19,8 @@ function LanguageSwitcher() {
         setAnchorEl(null);
     };
 
+    const { i18n } = useTranslation();
+
     return (
         <Box>
             <Button onClick={(event) => handleClick(event)}
@@ -29,13 +32,14 @@ function LanguageSwitcher() {
             <Menu
                 anchorEl={anchorEl}
                 open={open}
-                onClose={() => handleClose()}
+                onClose={handleClose}
             >
                 <Divider/>
                 {languageManage.allLanguages.map((curr) => {
                     return (
                         <MenuItem onClick={(event) => {
                             dispatch(changeLanguage({newLanguage: event.currentTarget.dataset.myValue}))
+                            i18n.changeLanguage(event.currentTarget.dataset.myValue.toLowerCase())
                             handleClose()
                         }}
                                   key={curr}

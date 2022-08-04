@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
 import {Box, Button, Divider, Menu, MenuItem} from "@mui/material";
 import {changeSelectedTasks} from "../../../redux/mainSlice";
+import {useTranslation} from "react-i18next";
 
 function AdditionalMenu() {
     const dispatch = useDispatch()
@@ -17,11 +18,11 @@ function AdditionalMenu() {
         setAnchorEl(null);
     };
 
+    const { t } = useTranslation();
+
     return (
         <Box>
-            <Button onClick={(event) => handleClick(event)}
-                    color="secondary"
-            >
+            <Button onClick={(event) => handleClick(event)} color="secondary">
                 <MoreHorizIcon color={open ? "secondary" : 'info'} sx={{fontSize: '48px', margin: '-10px'}}/>
             </Button>
             <Menu
@@ -45,7 +46,7 @@ function AdditionalMenu() {
                           selected={selectedTasks === 'All'}
                           divider={true}
                           key={'All'}>
-                    All
+                    {t('All')}
                 </MenuItem>
                 <MenuItem onClick={(event) => {
                     dispatch(changeSelectedTasks({newSelectedTasks: 'Completed'}))
@@ -54,7 +55,7 @@ function AdditionalMenu() {
                           selected={selectedTasks === 'Completed'}
                           divider={true}
                           key={'Completed'}>
-                    Completed
+                    {t('Completed')}
                 </MenuItem>
                 <MenuItem onClick={(event) => {
                     dispatch(changeSelectedTasks({newSelectedTasks: 'In Progress'}))
@@ -63,7 +64,7 @@ function AdditionalMenu() {
                           selected={selectedTasks === 'In Progress'}
                           divider={true}
                           key={'In Progress'}>
-                    In Progress
+                    {t('In Progress')}
                 </MenuItem>
                 <MenuItem onClick={(event) => {
                     dispatch(changeSelectedTasks({newSelectedTasks: 'Removed'}))
@@ -72,7 +73,7 @@ function AdditionalMenu() {
                           selected={selectedTasks === 'Removed'}
                           divider={true}
                           key={'Removed'}>
-                    Removed
+                    {t('Removed')}
                 </MenuItem>
             </Menu>
         </Box>

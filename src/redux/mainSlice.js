@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-let initialState
+let initialState;
 if (localStorage.getItem("state") !== null)
     initialState = JSON.parse(localStorage.getItem("state"))
 else {
@@ -19,6 +19,7 @@ else {
     }
     localStorage.setItem("state", JSON.stringify(initialState))
 }
+
 const mainSlice = createSlice({
     name: 'main',
     initialState,

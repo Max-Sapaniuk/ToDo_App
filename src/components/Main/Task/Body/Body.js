@@ -9,6 +9,7 @@ import {
     Typography
 } from "@mui/material";
 import {useState} from "react";
+import {useTranslation} from "react-i18next";
 
 function Body(props) {
 
@@ -20,6 +21,8 @@ function Body(props) {
         setOpen(false);
     };
 
+    const { t } = useTranslation();
+
     return (
         <Box flexBasis="100%" width="100px" paddingX={"5px"} className={"hoverMenu"}>
             <Box onClick={handleClickOpen}>
@@ -29,7 +32,7 @@ function Body(props) {
                 <Typography variant="body1" noWrap={true} sx={{
                     textDecoration: props.isCompleted ? 'line-through' : 'none'
                 }}>{props.body}</Typography>
-                <Typography variant="body2">Last edit: {props.addingDate.toString()}</Typography>
+                <Typography variant="body2">{t("Last edit")}: {props.addingDate.toString()}</Typography>
             </Box>
             <Dialog
                 open={open}
@@ -37,26 +40,26 @@ function Body(props) {
                 onClick={(event) => event.stopPropagation()}
             >
                 <DialogTitle fontSize="28px">
-                    Details about task
+                    {t("Details about task")}
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>
                         <Box display="flex" flexDirection="column">
                             <Box>
-                                <Typography variant="h5">Header: </Typography>
+                                <Typography variant="h5">{t("Header")}: </Typography>
                                 <Typography variant="body2">{props.header}</Typography>
                             </Box>
                             <Box>
-                                <Typography variant="h5">Body: </Typography>
+                                <Typography variant="h5">{t("Body")}: </Typography>
                                 <Typography variant="body2">{props.body}</Typography>
                             </Box>
                             <Box>
-                                <Typography variant="h5">Last edit date: </Typography>
+                                <Typography variant="h5">{t("Last edit")}: </Typography>
                                 <Typography variant="body2">{props.addingDate}</Typography>
                             </Box>
                             <Box>
-                                <Typography variant="h5">Status: </Typography>
-                                <Typography variant="body2">{props.isDeleted ? 'Removed' : props.isCompleted ? 'Completed' : 'In Progress'}</Typography>
+                                <Typography variant="h5">{t("Status")}: </Typography>
+                                <Typography variant="body2">{props.isDeleted ? t('Removed') : props.isCompleted ? t('Completed') : t('In Progress')}</Typography>
                             </Box>
                             <Box></Box>
                         </Box>
@@ -65,7 +68,7 @@ function Body(props) {
                 <DialogActions>
                     <Button color="error" variant="contained" type="reset" sx={{width: '45%'}}
                             onClick={handleClose}>
-                        Close
+                        {t("Close")}
                     </Button>
                 </DialogActions>
             </Dialog>

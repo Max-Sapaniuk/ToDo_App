@@ -2,6 +2,7 @@ import {Box, Dialog, DialogContent, DialogContentText, DialogTitle, Typography} 
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
 import ActionForm from "../Task/ActionForm/ActionForm";
 import {useState} from "react";
+import {useTranslation} from "react-i18next";
 
 function AddTask() {
 
@@ -13,12 +14,13 @@ function AddTask() {
         setOpen(false);
     };
 
+    const { t } = useTranslation();
+
     return (
         <>
-            <Box display="flex"
-                 width="350px"
+            <Box display="inline-flex"
                  className="hoverMenu"
-                 padding="5px 0 0 0"
+                 padding="5px 10px 0 0"
                  sx={{
                      "&:hover": {
                          borderRadius: "10px",
@@ -28,7 +30,7 @@ function AddTask() {
                  onClick={handleClickOpen}>
                 <Box padding="5px" marginX="10px"><AddCircleOutlineRoundedIcon fontSize="large"
                                                                                color="additional"/></Box>
-                <Typography variant="h4" color="#4545da">Create New Task</Typography>
+                <Typography variant="h4" color="#4545da">{t("Create New Task")}</Typography>
             </Box>
             <Dialog
                 open={open}
@@ -36,7 +38,7 @@ function AddTask() {
                 onClick={(event) => event.stopPropagation()}
             >
                 <DialogTitle fontSize="28px">
-                    Create task
+                    {t("Create Task")}
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>

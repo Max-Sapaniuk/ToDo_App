@@ -18,7 +18,7 @@ export default createTheme({
     },
     typography: {
         h1: {
-            fontFamily: "Quicksand",
+            fontFamily: "Nunito",
             fontSize: "48px",
             fontWeight: "bold",
         },
