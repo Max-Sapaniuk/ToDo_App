@@ -2,7 +2,6 @@ import {
     Box,
     Dialog,
     DialogContent,
-    DialogContentText,
     DialogTitle,
 } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
@@ -20,7 +19,7 @@ function Edit(props) {
         setOpen(false);
     };
 
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     return (
         <>
@@ -39,9 +38,8 @@ function Edit(props) {
                     {t("Update Task")}
                 </DialogTitle>
                 <DialogContent>
-                    <DialogContentText>
-                        <ActionForm id={props.id} header={props.header} body={props.body} handleClose={handleClose} type="edit"/>
-                    </DialogContentText>
+                    <ActionForm id={props.id} header={props.header} body={props.body} handleClose={handleClose}
+                                type="edit"/>
                 </DialogContent>
             </Dialog>
         </>

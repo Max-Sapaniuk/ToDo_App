@@ -1,4 +1,4 @@
-import {Box, Dialog, DialogContent, DialogContentText, DialogTitle, Typography} from "@mui/material";
+import {Box, Dialog, DialogContent, DialogTitle, Typography} from "@mui/material";
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
 import ActionForm from "../Task/ActionForm/ActionForm";
 import {useState} from "react";
@@ -14,7 +14,7 @@ function AddTask() {
         setOpen(false);
     };
 
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     return (
         <>
@@ -41,9 +41,7 @@ function AddTask() {
                     {t("Create Task")}
                 </DialogTitle>
                 <DialogContent>
-                    <DialogContentText>
-                        <ActionForm handleClose={handleClose} type="create"/>
-                    </DialogContentText>
+                    <ActionForm handleClose={handleClose} type="create"/>
                 </DialogContent>
             </Dialog>
         </>

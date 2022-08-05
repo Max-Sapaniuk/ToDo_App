@@ -39,7 +39,7 @@ function ActionForm(props) {
 
     return (
         <form onSubmit={formik.handleSubmit}>
-            <Box display="flex" flexDirection="column" gap="20px" m={1} width="400px">
+            <Box display="flex" flexDirection="column" gap="20px" m={1} width={{xs: "250px", sm: "400px"}}>
                 <TextField
                     fullWidth
                     color="info"

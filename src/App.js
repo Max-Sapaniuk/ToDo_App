@@ -1,4 +1,4 @@
-import {Box, Container, CssBaseline, ThemeProvider} from "@mui/material";
+import {Container, CssBaseline, ThemeProvider} from "@mui/material";
 import {useSelector} from "react-redux";
 import lightTheme from "./themes/light"
 import darkTheme from "./themes/dark"
@@ -21,7 +21,7 @@ function App() {
     return (
         <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
             <CssBaseline/>
-            <Container className={"container"}>
+            <Container sx={{minHeight: {xs: "calc(100vh - 130px)", sm: "calc(100vh - 100px)"}, paddingBottom: "30px"}}>
                 <Header/>
                 <Main/>
             </Container>

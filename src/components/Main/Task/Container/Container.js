@@ -3,6 +3,8 @@ import {Box} from "@mui/material";
 function Container(props) {
     return (
         <Box display="flex"
+             flexWrap={{xs: "wrap", sm: "nowrap"}}
+             justifyContent="space-evenly"
              alignItems="center"
              width="100%"
              marginBottom="15px"

@@ -10,10 +10,11 @@ function Footer(props) {
     return (
         <Box
             display="flex"
+            flexWrap={{xs: "wrap", sm: "nowrap"}}
+            justifyContent={{xs: "center", sm: "space-around"}}
             bgcolor="footer.main"
-            height="100px"
+            height={{xs: "130px", sm: "100px"}}
             width="100%"
-            justifyContent="space-around"
             alignItems="center"
         >
             <Box display="flex" alignItems="center">

@@ -57,11 +57,12 @@ const mainSlice = createSlice({
         },
         createTask: (state, action) => {
             state.tasks.lastId += 1
+            let currentDate = new Date()
             state.tasks.allTasks.push({
                 id: state.tasks.lastId,
                 header: action.payload.header,
                 body: action.payload.body,
-                addingDate: new Date().toString(),
+                addingDate: `${currentDate.toString().slice(0, currentDate.toString().indexOf("GMT")) }`,
                 isCompleted: false,
                 isDeleted: false,
             })

@@ -37,7 +37,7 @@ const resources = {
             "Today": "Сьогодні",
             "All": "Всі",
             "Completed": "Виконані",
-            "In Progress": "У прогоресі",
+            "In Progress": "У прогресі",
             "Removed": "Видалені",
             "Category not exist": "Категорія  з цією назвою не існує",
             "There is no task": "У даній категорії немає завдань",
